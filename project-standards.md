@@ -10,7 +10,6 @@ As nosas API's desenvolvidas em Laravel deverão possuir os seguintes requisitos
 
 OBS: Para outros bancos como <b>Oracle</b> a versão deverá ser definida no momento da proposta do projeto.
 What is this? <a name="what"></a>
--------------
 
 Regras de nomenclatura
 -------------
