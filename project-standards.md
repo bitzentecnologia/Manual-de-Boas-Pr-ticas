@@ -1,24 +1,26 @@
 # Padrões de Projeto
-<p>As nosas API's desenvolvidas em Laravel deverão possuir os seguintes requisitos iniciais:</p>
+As nosas API's desenvolvidas em Laravel deverão possuir os seguintes requisitos iniciais:
 
 - Versão do PHP 8.1
 - Laravel 8.x
 - Mysql e Postgress (last stable version)
 - Vue 3
-<p>OBS: Para outros bancos como <b>Oracle</b> a versão deverá ser definida no momento da proposta do projeto.</p>
+
+OBS: Para outros bancos como <b>Oracle</b> a versão deverá ser definida no momento da proposta do projeto.
 
 
 
 ## Regras de nomenclatura
-<p>Toda a padronização de nomes dos projetos deverá ser feita em <b>Inglês</b>, salvo exceções como nomes específicos de regras sem uma tradução confiável para o inglês, está regra se aplica tanto para nomes de Entidades, Métodos e End Points como também para variáveis. As descrições contidas em anotações podem seguir em português</p>
-<p>A seguir a estrutura da nomenclatura dos elementos da aplicação:</p>
+Toda a padronização de nomes dos projetos deverá ser feita em <b>Inglês</b>, salvo exceções como nomes específicos de regras sem uma tradução confiável para o inglês, está regra se aplica tanto para nomes de Entidades, Métodos e End Points como também para variáveis. As descrições contidas em anotações podem seguir em português
+
+A seguir a estrutura da nomenclatura dos elementos da aplicação:
 
 - Classes: Em **UpperCamelCase**. Ex: `OrderItems`
 - Funções: Em **lowerCamelCase**. Ex: `getList`
 - Variáveis: Em **lowerCamelCase**. Ex: `listOfItems`
 - Endpoints: Em **kebab-case**. Ex: `get-by-state`
 
-<p>Seguem mais algumas convenções específicas para a estrutura do framework Laravel</p>
+Seguem mais algumas convenções específicas para a estrutura do framework Laravel
 
 ###Models
 
