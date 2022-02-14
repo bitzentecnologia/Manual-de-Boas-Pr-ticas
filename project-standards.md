@@ -1,4 +1,6 @@
-# Padrões de Projeto
+Padrões de Projeto
+=======================================================
+
 As nosas API's desenvolvidas em Laravel deverão possuir os seguintes requisitos iniciais:
 
 - Versão do PHP 8.1
@@ -7,10 +9,11 @@ As nosas API's desenvolvidas em Laravel deverão possuir os seguintes requisitos
 - Vue 3
 
 OBS: Para outros bancos como <b>Oracle</b> a versão deverá ser definida no momento da proposta do projeto.
+What is this? <a name="what"></a>
+-------------
 
-
-
-## Regras de nomenclatura
+Regras de nomenclatura
+-------------
 Toda a padronização de nomes dos projetos deverá ser feita em <b>Inglês</b>, salvo exceções como nomes específicos de regras sem uma tradução confiável para o inglês, está regra se aplica tanto para nomes de Entidades, Métodos e End Points como também para variáveis. As descrições contidas em anotações podem seguir em português
 
 A seguir a estrutura da nomenclatura dos elementos da aplicação:
@@ -83,7 +86,8 @@ OBS: Algumas vezes a lógica contida da Trait pode não fazer sentido utilizar e
 
 - Deve estar em snake_case. Ex: `list_products.blade.php`
 
-## Organização estrutural do projeto
+Organização estrutural do projeto
+-------------
 Para fins de referência da estrutura do projeto (organização dos diretórios), deve-se sempre utilizar o [Projeto Padrão Laravel](https://github.com/bitzentecnologia/default-laravel-project).
 
 Porém, referente as regras determinadas sobre a utilização das Entidades presentes no projeto, segue as normas definidas:
@@ -93,13 +97,15 @@ Porém, referente as regras determinadas sobre a utilização das Entidades pres
 - **Services**. Representam a regra de negócio, toda a lógica referente a Entidade deve ser tratada aqui, porém nenhum método que faça consultas ou alterações no banco devem estar presentes em seus métodos.
 - **Repositories**. Devem conter toda a interação com o banco de dados, os seus métodos devem contar todas as querys relevantes para a Entidade.  
 
-## Padrões de Projeto
+Padrões de Projeto
+-------------
 
 Os projetos realizados pela Bitzen passaram a ser cobrados alguns padrões e convenções para desenvolvimento de aplicações em PHP. Alguns desses padrões (como PSR2) já são checados automáticamente pela ferramenta de CI do projeto, isso caso ele tenha sido criado a partir do [Projeto Padrão Laravel](https://github.com/bitzentecnologia/default-laravel-project).
 
 
 
-## Testes Automatizados
+Testes Automatizados
+-------------
 
 Ao elaborar um **Teste Automatizado** tenha em mente os seguintes pontos:
 
