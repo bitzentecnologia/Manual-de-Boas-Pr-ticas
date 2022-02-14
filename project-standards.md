@@ -1,6 +1,145 @@
 # Padrões de Projeto
-Abordar versão do PHP e do Laravel.
-## Definição de Nomes de Entidades, Métodos e Parametros
-## Organização Estrutural do Projeto
-## PSR's
-## Testes Automátizados
+<p>As nosas API's desenvolvidas em Laravel deverão possuir os seguintes requisitos iniciais:</p>
+
+- Versão do PHP 8.1
+- Laravel 8.x
+- Mysql e Postgress (last stable version)
+- Vue 3
+<p>OBS: Para outros bancos como <b>Oracle</b> a versão deverá ser definida no momento da proposta do projeto.</p>
+
+
+
+## Regras de nomenclatura
+<p>Toda a padronização de nomes dos projetos deverá ser feita em <b>Inglês</b>, salvo exceções como nomes específicos de regras sem uma tradução confiável para o inglês, está regra se aplica tanto para nomes de Entidades, Métodos e End Points como também para variáveis. As descrições contidas em anotações podem seguir em português</p>
+<p>A seguir a estrutura da nomenclatura dos elementos da aplicação:</p>
+
+- Classes: Em **UpperCamelCase**. Ex: `OrderItems`
+- Funções: Em **lowerCamelCase**. Ex: `getList`
+- Variáveis: Em **lowerCamelCase**. Ex: `listOfItems`
+- Endpoints: Em **kebab-case**. Ex: `get-by-state`
+
+<p>Seguem mais algumas convenções específicas para a estrutura do framework Laravel</p>
+
+###Models
+
+- Deve estar no singular.
+- Assim como as demais classes deve estar em **UpperCamelCase**.
+- As propriedades da model devem estar em snake_case. Ex: `$this->created_at`
+- Os métodos que representam relacionamentos na model devem seguir o seguinte padrão:
+  - Relacionamentos do tipo hasOne ou belongsTo devem estar no singular. Ex: `public function client()`
+  - Relacionamentos do tipo hasMany, belongsToMany ou hasManyThrough devem estar no plural. Ex: `public function products()`
+
+**Exemplo:**
+```php
+class Product extends Model
+{
+    protected $fillable = [
+        'name',
+        'value',
+        'category_id',
+        'order',
+    ];
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'category_id');
+    }
+
+    public function orders()
+    {
+        return $this->belongsToMany(Order::class, 'orders', 'product_id');
+    }
+}
+```
+
+###Controllers
+
+- Deve estar no singular.
+- Assim como as demais classes deve estar em **UpperCamelCase**.
+- Sempre finalizado com Controller
+
+**Exemplo:**
+```php
+class ProductController extends Controller
+{}
+```
+
+###Tests
+
+As normas a seguir se aplicam para testes do tipo Feature, para testes unitários serão definidas outras normas no futuro.
+
+- O nome do método deve ser o mesmo do Controller testado seguido pelo termo **Test**. Ex: `UserControllerTest()`
+- O nome dos métodos do teste devem sempre iniciar com **testMust** seguido pelo que será testado em **camelCase**. Ex: `testMustReturnUserList`
+
+###Traits
+
+- Deve ser um adjetivo. Ex: `Sortable`
+
+OBS: Algumas vezes a lógica contida da Trait pode não fazer sentido utilizar esta regra, nestes casos não a problema desde que o nome reflita o que a Trait se propões a fazer.
+
+###Blade
+
+- Deve estar em snake_case. Ex: `list_products.blade.php`
+
+## Organização estrutural do projeto
+Para fins de referência da estrutura do projeto (organização dos diretórios), deve-se sempre utilizar o [Projeto Padrão Laravel](https://github.com/bitzentecnologia/default-laravel-project).
+
+Porém, referente as regras determinadas sobre a utilização das Entidades presentes no projeto, segue as normas definidas:
+
+- **Models**. Devem apenas conter o que é referente ao modelo do banco, portanto os métodos presentes devem apenas representar os relacionamentos da tabela retratada ou seus atributos.
+- **Controllers**. Devem se preocupar apenas em redirecionar para qual Service a requisição será direcionada, nenhuma regra de negócio ou consulta deve ser tratada aqui.
+- **Services**. Representam a regra de negócio, toda a lógica referente a Entidade deve ser tratada aqui, porém nenhum método que faça consultas ou alterações no banco devem estar presentes em seus métodos.
+- **Repositories**. Devem conter toda a interação com o banco de dados, os seus métodos devem contar todas as querys relevantes para a Entidade.  
+
+## Padrões de Projeto
+
+Os projetos realizados pela Bitzen passaram a ser cobrados alguns padrões e convenções para desenvolvimento de aplicações em PHP. Alguns desses padrões (como PSR2) já são checados automáticamente pela ferramenta de CI do projeto, isso caso ele tenha sido criado a partir do [Projeto Padrão Laravel](https://github.com/bitzentecnologia/default-laravel-project).
+
+
+
+## Testes Automatizados
+
+Ao elaborar um **Teste Automatizado** tenha em mente os seguintes pontos:
+
+- Cada Entidade de Teste deve refletir um Controller do projeto, e os seus Métodos refletir interações com os endpoints que se comunicam com este Controller.
+- Ao pensar no teste, pense primeiro nas interações possíveis com o endpoint, tentando abordar o máximo possível de casos de uso.
+- Ao criar o teste, deve-se procurar validar não apenas o retorno positivo ou negativo, deve-se também validar o corpo do retorno (quando existir) para certificar-se que corresponde com o esperado.
+- Sempre que necessário criar registros para o teste, deve-se utilizar as Factory da Model a ser testada.
+
+
+**Exemplo:**
+```php
+class UserControllerTest extends TestCase
+{
+    private $endPoint = "/api/users";
+
+    public function testMustReturnUserList()
+    {
+        $users = User::factory(10)->create();
+        $response = $this->json('GET', $this->endPoint);
+
+        $response
+            ->assertStatus(200)
+            ->assertJsonStructure([
+                'data' => [
+                    '*' => array_keys($users->first()->toArray()),
+                ],
+            ]);
+    }
+
+    public function testMustReturnUserWithSearch()
+    {
+        $users = User::factory(10)->create();
+        $url = sprintf('%s?search=%s', $this->endPoint, $users->first()->name);
+        $response = $this->json('GET', $url);
+
+        $response
+            ->assertStatus(200)
+            ->assertJsonStructure([
+                'data' => [
+                    '*' => array_keys($users->first()->toArray()),
+                ],
+            ]);
+    }
+}
+```

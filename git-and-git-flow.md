@@ -1,6 +1,7 @@
 # Git/Git-Flow
-## Lifecicle da Tarefa até a Conclusão (Git-Flow)
-## Padrão para Nomenclatura das Branchs
-## Criação do Comentário para os Commits
+## Lifecicle da tarefa até a conclusão (Git-Flow)
+## Padrão para nomenclatura das branchs
+## Mantenha a branch atualizada
+## Criação do comentário para os commits
 ## Quando 'comitar'?
 ## Criação das Pull Request
