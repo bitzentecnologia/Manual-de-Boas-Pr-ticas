@@ -94,7 +94,7 @@ Porém, referente as regras determinadas sobre a utilização das Entidades pres
 - **Models**. Devem apenas conter o que é referente ao modelo do banco, portanto os métodos presentes devem apenas representar os relacionamentos da tabela retratada ou seus atributos.
 - **Controllers**. Devem se preocupar apenas em redirecionar para qual Service a requisição será direcionada, nenhuma regra de negócio ou consulta deve ser tratada aqui.
 - **Services**. Representam a regra de negócio, toda a lógica referente a Entidade deve ser tratada aqui, porém nenhum método que faça consultas ou alterações no banco devem estar presentes em seus métodos.
-- **Repositories**. Devem conter toda a interação com o banco de dados, os seus métodos devem contar todas as querys relevantes para a Entidade.  
+- **Repositories**. Devem conter toda a interação com o banco de dados, os seus métodos devem contar todas as querys relevantes para a Entidade.
 
 Padrões de Projeto
 -------------
