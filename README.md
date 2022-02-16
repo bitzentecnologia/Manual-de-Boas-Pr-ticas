@@ -18,7 +18,7 @@ Tópicos<a name="content"></a>
 - [Fluxo de Testes.](test-flow.md)
 
 
-Código Bitzen Bushido
+Código Bushido da Bitzen
 -------------
 
 A seguir algumas lições adaptadas dos princípios do **Bushido** para a nossa realidade. 
