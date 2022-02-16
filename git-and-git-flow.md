@@ -2,16 +2,16 @@ Git/Git-Flow
 =======================================================
 
 
-Lifecicle da tarefa até a conclusão (Git-Flow)
+Workflow da tarefa até a conclusão (Git-Flow)
 -------------
 
 Toda a tarefa desenvolvida deverá seguir um ciclo desde seu início até sua conclusão e publicação, para este fim iremos utilizar o Git-Flow.
 
-###Iniciando o Git-Flow
+<h3>Iniciando o Git-Flow</h3>
 
 Para instruções de como instalar o Git-Flow em seu ambiente e realizar a sua configuração inicial pode-se utilizar o [Git-Flow Cheatsheet](http://danielkummer.github.io/git-flow-cheatsheet/)
 
-###Fluxo de Trabalho
+<h3>Fluxo de Trabalho</h3>
 
 O processo de desenvolvimento deve sempre se iniciar apartir de uma tarefa criada no clickup, a partir desta tarefa uma branch com a solução será aberta porém dependendo do tipo da tarefa ela terá algumas diferenças.
 
@@ -41,6 +41,7 @@ Para facilitar a identificação da sua branch ela sempre deverá ser criada com
 
 Por exemplo, uma tarefa chamada `Criar cadastro de clientes` deverá ter sua branch criada como `criar_cadastro_de_clientes`.
 
+
 Mantenha a branch atualizada
 -------------
 
@@ -48,19 +49,34 @@ Mantenha a branch atualizada
 
 Para fazer isto utilize os seguintes comandos:
 
-- `git checkout <develop/master>`
-- `git pull`
-- `git checkout <branch>`
-- `git merge <develop/master>`
+```php
+git checkout <develop/master>
+git pull
+git checkout <branch>
+git merge <develop/master>
+```
 
 É recomendável também que ao criar a **Pull Request** e até depois disso, enquanto ela ainda não foi fechada, que se verifique se não foi alertado conflitos com a branch raiz.
 
 Criação do comentário para os commits
 -------------
 
-O comentário no momento do commit deve refletir o que realmente está sendo "comitado", uma boa prática para o comentário é que ele seja feito começando com um termo no **infinitivo**. Exemplo `Criando ação para disparo de e-mails`.
+O comentário no momento do commit deve refletir o que realmente está sendo "comitado", uma boa prática para o comentário é começar pelo título e que ele seja feito no **infinitivo**. Exemplo `Criando ação para disparo de e-mails`.
 
-### Quando realizar o Commit?
+Na sequência procure o melhor possível descrever o que foi desenvolvido, o commit entre outras coisas serve também como uma forma de documentar a aplicação.
+
+<h3> Configure corretamente a autoria dos commits</h3>
+
+Assim como uma boa descrição na hora de realizar um commit, ter a autoria de quem realizou cada push auxilia caso seja necessário tirar dúvidas a respeito de uma mudança realizada, assim como consultar o autor de uma mudança antes de alterar algo que impacte no que ele desenvolveu.
+
+Para realizar esta configuração basta realizar os seguintes comandos.
+
+```php
+git config --global user.name "Seu nome"
+git config --global user.email seu_email@exemplo.com
+```
+
+<h3> Quando realizar o Commit?</h3>
 Para que o comentário possa ser feito da forma correta, de forma a expressar o que realmente foi desenvolvido e que não fique muito extenso é necessário que o fluxo de commits seja coerente.
 
 Para isso, assim como em alguns padrões de denvolvimento, recomenda-se utilizar a abordagem do **Princípio da Responsabilidade Única**, este princípio pode também ser aplicado aos commits fazendo com que cada commit seja composto de linhas que façam sentido juntas para uma mesma lógica.

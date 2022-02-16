@@ -24,7 +24,7 @@ A seguir a estrutura da nomenclatura dos elementos da aplicação:
 
 Seguem mais algumas convenções específicas para a estrutura do framework Laravel
 
-###Models
+<h3>Models</h3>
 
 - Deve estar no singular.
 - Assim como as demais classes deve estar em **UpperCamelCase**.
@@ -56,7 +56,7 @@ class Product extends Model
 }
 ```
 
-###Controllers
+<h3>Controllers</h3>
 
 - Deve estar no singular.
 - Assim como as demais classes deve estar em **UpperCamelCase**.
@@ -68,20 +68,20 @@ class ProductController extends Controller
 {}
 ```
 
-###Tests
+<h3>Testes</h3>
 
 As normas a seguir se aplicam para testes do tipo Feature, para testes unitários serão definidas outras normas no futuro.
 
 - O nome do método deve ser o mesmo do Controller testado seguido pelo termo **Test**. Ex: `UserControllerTest()`
 - O nome dos métodos do teste devem sempre iniciar com **testMust** seguido pelo que será testado em **camelCase**. Ex: `testMustReturnUserList`
 
-###Traits
+<h3>Traits</h3>
 
 - Deve ser um adjetivo. Ex: `Sortable`
 
 OBS: Algumas vezes a lógica contida da Trait pode não fazer sentido utilizar esta regra, nestes casos não a problema desde que o nome reflita o que a Trait se propões a fazer.
 
-###Blade
+<h3>Blade</h3>
 
 - Deve estar em snake_case. Ex: `list_products.blade.php`
 
