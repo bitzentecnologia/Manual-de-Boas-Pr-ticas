@@ -31,7 +31,38 @@ A seguir algumas lições adaptadas dos princípios do **Bushido** para a nossa 
 - Permaneça **Leal** ao seu projeto e equipe, adote o princípio que se um erra todos erram e se um tem sucesso todos compartilham deste sucessso.
 
 
+## 🤝 Colaboradores
 
+Agradecemos às seguintes pessoas que contribuíram para este manual:
+
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/WellingtonValentin">
+        <img src="https://avatars.githubusercontent.com/u/18449824?v=4" width="100px;" alt="Foto do Iuri Silva no GitHub"/><br>
+        <sub>
+          <b>Wellington Valentin</b>
+        </sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/iorimatt">
+        <img src="https://i.imgur.com/tD3jKTj.png" width="100px;" alt="Foto do Mateus Franco"/><br>
+        <sub>
+          <b>Mateus Franco</b>
+        </sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/BrunoTakano">
+        <img src="https://avatars.githubusercontent.com/u/53800876?v=4" width="100px;" alt="Foto do Bruno Takano"/><br>
+        <sub>
+          <b>Bruno Takano</b>
+        </sub>
+      </a>
+    </td>
+  </tr>
+</table>
 
 
 
