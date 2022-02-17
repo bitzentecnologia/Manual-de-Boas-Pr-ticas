@@ -150,3 +150,48 @@ class UserControllerTest extends TestCase
     }
 }
 ```
+
+Utilizando as Seeders
+-------------
+
+O objetivo das Seeders no projeto deverá ser única e exclusivamente para a criação de registros padrões no banco de dados, informações que são obrigatórias existir e das quais o usuário não tem acesso para criar ou excluir.
+
+Dados para uma tabela de **Estados** ou **Categorias** são bons exemplos de informações que podem ser inseridas utilizando uma Seeder. É recomendável evitar inserir, por exemplo, usuários master que não pertençam ao cliente (os famosos usuários de teste), este tipo de usuário deve ser limitado apenas a bases locais e de testes e portanto inseridos por outros meios.
+
+Dados de Testes **nunca** devem estar em uma Seeder, isso pode fazer com que o banco de produção fique poluído, ao invés de criar uma Seeder para ter registros a serem testados, o correto é a criação correta das Factories e estas serem utilizadas dentro dos Testes do sistema.
+
+Outra prática que deve ser evitada na Seeder é a fixação de ID na hora de criar um registro, colunas do tipo autoincrement não nos permitem ter a previsibilidade total do seu valor gerado e devido a isso não devemos assumir que o mesmo ID que está para um registro em nossa base se manterá nas temais. Ao invés de fixar um ID o correto é utilizar uma referencia, algo único que identifique aquele registro sem ser o ID, e utilizar está referência para buscar o registro correto e pegar seu ID atual no momento em que a Seeder criará o novo registro.
+
+**Exemplo**
+```php
+class ProductSeeder extends Seeder
+{
+    private $products = [
+
+        [ 
+            'name' => 'Televisão Marca X', 
+            'category_id' => 'Eletrônicos', 
+        ],
+        [ 
+            'name' => 'Home Theater Y', 
+            'category_id' => 'Eletrônicos', 
+        ],
+    ];
+    
+    public function run()
+    {
+        foreach ($this->products as $product) {
+            if (!Product::where('name', $product['name'])->first()) {
+                $product['category_id'] = $this->getCategory($product['category_id']);
+                Product::create($product);
+            }
+        }
+    }
+    
+    public function getCategory($categoryId)
+    {
+        $category = Category::where('name', $categoryId)->first();
+        return $category->id;
+    }
+}
+```
