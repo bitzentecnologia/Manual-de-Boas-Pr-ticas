@@ -24,7 +24,7 @@ Código Bushido da Bitzen
 A seguir algumas lições adaptadas dos princípios do **Bushido** para a nossa realidade. 
 
 - **Honre** a si mesmo e a seu projeto, não permita que nem um nem outro sejam vistos com maus olhos pelo cliente.
-- Seja **Homesto** em assumir seus erros, todos são suscetíveis a errar, o importante é aprender com o erro.
+- Seja **Honesto** em assumir seus erros, todos são suscetíveis a errar, o importante é aprender com o erro.
 - Tenha **Coragem** de assumir novos desafios, a evolução não ocorrerá se você permanecer no seu lugar de conforto.
 - Seja **Sincero** principalmente ao estimar uma tarefa desta forma conseguimos ser mais precisos em nossas entregas.
 - Tenha **Autocontrole**, as vezes queremos dar um passo maior do que nossas pernas comportam, assuma riscos, porém saiba como medí-los corretamente antes.
